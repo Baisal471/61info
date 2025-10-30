@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Школа №61 — новостной сайт</title>
+  <meta name="description" content="новостной сайт школы-лицея №61, Бишкек — новости, расписание, контакты и служба поддержки."/>
+  <style>
+    :root{
+      --accent:#1565d8;
+      --muted:#6b7280;
+      --card:#ffffffcc;
+      --bg:#f5f7fb;
+      --text:#06283D;
+      /* Фон установлен на выбранную 1-ю картинку (источник: 2GIS/страница школы) */
+      --hero-bg: url('https://2gis.kg/bishkek/firm/70000001019349040');
+    }
+    [data-theme="dark"]{
+      --card: rgba(15,18,25,0.75);
+      --bg:#071029;
+      --text:#e7eef8;
+      --muted:#a8b3c7;
+      --accent:#6ea8ff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:Inter, Roboto, Arial, sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;
+    }
+    a{color:var(--accent);text-decoration:none}
+    header{position:sticky;top:0;backdrop-filter: blur(6px);z-index:40}
+    .nav {
+      display:flex;align-items:center;justify-content:space-between;padding:12px 20px;
+    }
+    .logo{display:flex;gap:12px;align-items:center}
+    .logo .mark{width:46px;height:46px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#0b84ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    .menu{display:flex;gap:12px;align-items:center}
+    .btn{background:var(--accent);color:white;padding:8px 12px;border-radius:8px;border:0;cursor:pointer}
+    .ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:8px 10px;border-radius:8px}
+
+    /* Hero */
+    .hero{
+      display:flex;align-items:center;justify-content:center;padding:64px 20px;min-height:360px;
+      background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.12)), var(--hero-bg);
+      background-size:cover;background-position:center center;color:white;
+    }
+    .hero-inner{max-width:1200px;width:100%;display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .hero-left{max-width:720px}
+    .hero h1{margin:0;font-size:36px;line-height:1.05}
+    .hero p{margin:10px 0 0 0;opacity:0.95}
+
+    /* Main layout */
+    .container{max-width:1200px;margin:24px auto;padding:0 20px;display:grid;grid-template-columns:2fr 1fr;gap:20px}
+    .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.06)}
+    .news-list{display:grid;gap:12px}
+    .news-item{display:flex;gap:12px;align-items:flex-start}
+    .news-item img{width:120px;height:80px;border-radius:8px;object-fit:cover}
+    .small{font-size:13px;color:var(--muted)}
+    aside .support{display:flex;flex-direction:column;gap:8px}
+    .search-form{display:flex;gap:8px;margin-bottom:12px}
+
+    /* Footer */
+    footer{padding:20px;text-align:center;color:var(--muted);margin-top:26px}
+
+    /* Responsive */
+    @media(max-width:920px){
+      .container{grid-template-columns:1fr}
+      .hero{padding:40px 12px;min-height:260px}
+      .hero h1{font-size:26px}
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <header>
+    <div class="nav container" style="grid-template-columns:1fr;">
+      <div class="logo">
+        <div class="mark">61</div>
+        <div>
+          <div style="font-weight:700">Школа-лицей №61</div>
+          <div class="small">Бишкек, ул. Малдыбаева, 10</div>
+        </div>
+      </div>
+
+      <div class="menu" aria-hidden>
+        <nav style="display:flex;gap:10px;align-items:center">
+          <a href="#about">О школе</a>
+          <a href="#news">Новости</a>
+          <a href="#education">Образование</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+        <button id="themeBtn" class="ghost">Тёмный режим</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" role="banner" aria-label="Фото школы №61">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <h1>Школа-лицей №61 — лидирующая школа по точным наукам в Бишкеке</h1>
+        <p>Современное образование, кружки, олимпиады и дружная школьная жизнь. Новости, расписание и служба поддержки — всё на одном сайте.</p>
+        <div style="margin-top:14px;display:flex;gap:10px">
+          <a href="#news" class="btn">Читать новости</a>
+          <a href="#contacts" class="ghost">Связаться</a>
+        </div>
+      </div>
+
+      <div style="min-width:260px">
+        <div class="card" style="text-align:left;padding:14px;">
+          <div style="font-weight:700">Служба поддержки</div>
+          <div class="small" style="margin-top:6px">По вопросам сайта, приёма или технической поддержки:</div>
+          <div style="margin-top:10px">
+            <div class="small">Email:</div>
+            <a href="mailto:baidoletovb@gmail.com" style="font-weight:700;display:block">baidoletovb@gmail.com</a>
+          </div>
+          <div style="margin-top:10px" class="small">Телефон: +996 (XXX) XXX-XXX (добавьте при необходимости)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container" id="main">
+    <section>
+      <div class="card" id="about">
+        <h2>О школе</h2>
+        <p class="small">Учебный комплекс — профиль по точным наукам, кружки, подготовка к олимпиадам и доброжелательная атмосфера. На сайте вы найдёте актуальные новости, события.</p>
+      </div>
+
+      <div class="card" id="news" style="margin-top:12px;">
+        <h2>Новости</h2>
+        <div class="news-list" id="newsList">
+          <!-- Новости подгружаются скриптом -->
+        </div>
+      </div>
+
+      <div class="card" id="education" style="margin-top:12px;">
+        <h2>Образовании</h2>
+        <ul>
+          <li>Физико-математический профиль</li>
+          <li>Профессанальные учителя</li>
+          <li>Новости на сайте могут быть неактуальные! Советуется проверять новости</li>
+          <li>Уважайте учителей</li>
+          <li>Будьте внимательны на уроках</li>
+          <li>На данный момент нет кружков</li>
+        </ul>
+      </div>
+    </section>
+
+    <aside>
+      <div class="card">
+        <h3>Поиск по сайту</h3>
+        <div class="search-form">
+          <input id="searchInput" placeholder="Поиск новости или раздела..." style="flex:1;padding:8px;border-radius:8px;border:1px solid #e6eef8" />
+          <button id="searchBtn" class="btn">Найти</button>
+        </div>
+
+        <h3 style="margin-top:12px">Контакты</h3>
+        <p class="small">Адрес: Бишкек, ул. Малдыбаева, 10</p>
+        <p class="small">Email: <a href="mailto:baidoletovb@gmail.com">baidoletovb@gmail.com</a></p>
+        <hr style="margin:12px 0" />
+        <h3>Служба поддержки</h3>
+        <div class="support">
+          <a class="btn" href="mailto:baidoletovb@gmail.com?subject=Вопрос%20по%20сайту">Написать на почту</a>
+          <button id="reportBtn" class="ghost">Сообщить о проблеме (форму)</button>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <h4>Полезные ссылки</h4>
+        <ul style="padding-left:18px;margin:8px 0">
+          <li><a href="#education">Программы обучения</a></li>
+          <li><a href="#news">Архив новостей</a></li>
+          <li><a href="#contacts">Как добраться</a></li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <footer id="contacts">
+    © Школа-лицей №61 — Все права защищены. Контакт: <a href="mailto:baidoletovb@gmail.com">baidoletovb@gmail.com</a>
+  </footer>
+
+  <script>
+    // Пример: динамическая подгрузка новостей (замените на реальные данные)
+    const news = [
+      {id:1,title:"Открытие нового корпуса",date:"2025-09-10",img:"https://via.placeholder.com/320x200?text=Корпус",text:"В школе открыли дополнительный корпус для 300 учеников."},
+      {id:2,title:"Победы на олимпиадах по математике",date:"2025",img:"https://via.placeholder.com/320x200?text=Олимпиада",text:"Ученики показали отличные результаты на республиканской олимпиаде."},
+      {id:3,title:"День науки 2025",date:"2025",img:"https://via.placeholder.com/320x200?text=День+науки",text:"Будут ли соревновании по футболу?"}
+    ];
+
+    const newsList = document.getElementById('newsList');
+    news.forEach(n=>{
+      const el = document.createElement('div');
+      el.className = 'news-item';
+      el.innerHTML = `\n        <img src="${n.img}" alt="" />\n        <div>\n          <div style="font-weight:700">${n.title}</div>\n          <div class="small">${n.date}</div>\n          <div class="small" style="margin-top:6px">${n.text}</div>\n        </div>\n      `;
+      newsList.appendChild(el);
+    });
+
+    // Search (поиск по заголовкам и тексту новостей)
+    const searchInput = document.getElementById('searchInput');
+    document.getElementById('searchBtn').addEventListener('click', ()=>{
+      const q = searchInput.value.trim().toLowerCase();
+      if(!q){ alert('Введите запрос для поиска'); return; }
+      const found = news.filter(n => (n.title + ' ' + n.text).toLowerCase().includes(q));
+      if(found.length===0){ alert('Ничего не найдено'); return; }
+      alert('Найдено ' + found.length + ' результатов. Показываю первый: ' + found[0].title);
+      location.hash = '#news';
+    });
+
+    // Theme toggle
+    const themeBtn = document.getElementById('themeBtn');
+    themeBtn.addEventListener('click', ()=>{
+      const root = document.documentElement;
+      const isDark = root.getAttribute('data-theme') === 'dark';
+      root.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      themeBtn.textContent = isDark ? 'Тёмный режим' : 'Светлый режим';
+    });
+
+    // Report button opens mailto with prefilled subject/body
+    document.getElementById('reportBtn').addEventListener('click', ()=>{
+      const subject = encodeURIComponent('Сообщение о проблеме на сайте Школы №61');
+      const body = encodeURIComponent('Опишите проблему:\n\n(укажите страницу, шаги для воспроизведения, скриншоты)\n');
+      location.href = 'mailto:baidoletovb@gmail.com?subject=' + subject + '&body=' + body;
+    });
+
+    // Подсказка: если хочешь, я могу заменить фон на прямой URL изображения высокого разрешения.
+  </script>
+</body>
+</html>
